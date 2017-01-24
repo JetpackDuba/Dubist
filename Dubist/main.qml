@@ -144,12 +144,11 @@ ApplicationWindow {
     function addTask(textTask){
         if(textTask !== "")
         {
-            //TODO: This should assign an id to each new item or we won't be able to remove those items unless that we restart the app
             lvItems.model.append({
+                                     id: SqlDb.newId(),
                                      title:"TODO",
                                      description: textTask
                                  });
-            //TODO: This should be async
             SqlDb.insertTask("TODO", textTask);
         }
     }

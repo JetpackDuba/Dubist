@@ -47,13 +47,7 @@ var insertTask = function(title, description){
 
     db.transaction(
                 function(tx) {
-
-                    var rs = tx.executeSql('SELECT MAX(id) as maxId FROM Tasks');
-                    var maxId=1;
-                    if(rs.rows.length > 0)
-                            maxId=rs.rows.item(0).maxId
-
-                    tx.executeSql('INSERT INTO Tasks VALUES(?, ?, ?, ?)', [maxId + 1, title, description, 0 ]);
+                    tx.executeSql('INSERT INTO Tasks VALUES(?, ?, ?, ?)', [newId(), title, description, 0 ]);
 
                 });
 }
@@ -74,4 +68,20 @@ var removeTask = function(id){
                 function(tx) {
                     var rs = tx.executeSql('DELETE FROM Tasks WHERE id = ' + id);
                 });
+}
+
+var newId = function(){
+    var db = Sql.openDatabaseSync(identifier, version, description, 1000000);
+    var maxId=1;
+
+    db.transaction(
+                function(tx) {
+
+                    var rs = tx.executeSql('SELECT MAX(id) as maxId FROM Tasks');
+
+                    if(rs.rows.length > 0)
+                            maxId=rs.rows.item(0).maxId
+
+                });
+    return maxId + 1
 }
