@@ -63,9 +63,10 @@ ApplicationWindow {
 
                     Text {
                         text: title + ": " + description
-
                     }
+
                     Image{
+                        //TODO: Icon should be changed
                         id: imgRemove
                         source: "res/delete.svg"
                         anchors.top: parent.top
@@ -109,6 +110,7 @@ ApplicationWindow {
                 }
 
                 highlightMoveDuration: 0
+                highlightResizeDuration: 0
 
                 highlight: Rectangle {
                     color: 'grey'
