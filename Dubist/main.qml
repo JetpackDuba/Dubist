@@ -142,7 +142,7 @@ ApplicationWindow {
             //TODO: Done page!
         }
     }
-
+    //workerScript should be added to insert data asynchronously
     function addTask(textTask){
         if(textTask !== "")
         {
