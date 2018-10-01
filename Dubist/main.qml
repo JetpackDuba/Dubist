@@ -12,7 +12,9 @@ ApplicationWindow {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
-
+	/*
+	Change this to use the correct page implementation instead of this dummy page
+	*/
         Page1 {
         }
 
