@@ -12,17 +12,12 @@ ApplicationWindow {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
-
-        Page1 {
-        }
-
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
-        }
+	Page1 {
+	Text {
+		}
+	}
     }
+
 
     footer: TabBar {
         id: tabBar
@@ -32,6 +27,9 @@ ApplicationWindow {
         }
         TabButton {
             text: qsTr("Second")
+        }
+        TabButton {
+            text: qsTr("Third")
         }
     }
 }
